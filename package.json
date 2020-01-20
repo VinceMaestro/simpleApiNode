@@ -1,0 +1,27 @@
+{
+  "name": "simpleapinode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VinceMaestro/simpleApiNode.git"
+  },
+  "author": "VinceMaestro <vincent.petit.danjou@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VinceMaestro/simpleApiNode/issues"
+  },
+  "homepage": "https://github.com/VinceMaestro/simpleApiNode#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "mongodb": "^3.4.1",
+    "nodemon": "^2.0.2",
+    "request": "^2.88.0"
+  }
+}
