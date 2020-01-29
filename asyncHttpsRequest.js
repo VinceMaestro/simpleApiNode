@@ -1,8 +1,6 @@
-const client = require('https');
-
-function asyncHttpsRequest (url) {
+function asyncHttpsRequest (url, useHttp = false) {
   return new Promise((resolve, reject) => {
-    // console.log('Reaching : ' + url);
+    const client = useHttp === false ? require('https') : require('http');
     client.get(url, (resp) => {
       let data = '';
       resp.setEncoding('utf8');
@@ -11,17 +9,17 @@ function asyncHttpsRequest (url) {
       });
       resp.on('end', () => {
         if (resp.statusCode === 200) {
-          // console.log(data)
-          resolve(data);
-        } else if (resp.statusCode === 302) {
           console.log('Server status : ' + resp.statusCode);
+          resolve(data);
         } else {
           console.log('Server status : ' + resp.statusCode);
           // const msg = JSON.parse(data);
           // reject(msg.error);
-          reject(resp);
+          reject(new Error(data));
         }
       });
+    }).on('error', (error) => {
+      reject(new Error(error));
     });
   });
 }

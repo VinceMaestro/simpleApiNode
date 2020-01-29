@@ -6,6 +6,7 @@ class Parser {
 
   parseFromGoogle (data) {
     return new Promise((resolve, reject) => {
+      console.log('Parsing from Google');
       const $ = cheerio.load(data);
       let url = $('.kCrYT a').attr('href');
       if (url !== undefined) {
@@ -14,7 +15,7 @@ class Parser {
         url = url.substr(start, end - start);
         resolve(url);
       } else {
-        reject('Can not find any url on Google');
+        reject(new Error('Can not find any url on Google'));
       }
     });
   }
@@ -54,11 +55,16 @@ class Parser {
 
   parseFromLeFigaro (data) {
     return new Promise((resolve, reject) => {
-      resolve('isDissolved ?');
-      const $ = cheerio.load(data);
-      const isDissolved = $('div');
-      resolve(isDissolved);
-      reject('Rejected');
+      console.log('Parsing from Le Figaro');
+      // TODO !!!!
+      if (data) {
+        const $ = cheerio.load(data);
+        const isDissolved = $('.od_timeline__content__item h3').text();
+        console.log(isDissolved);
+        resolve(isDissolved);
+      } else {
+        reject(new Error('Rejected'));
+      }
     });
   }
 }
