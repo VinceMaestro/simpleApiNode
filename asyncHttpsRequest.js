@@ -9,10 +9,8 @@ function asyncHttpsRequest (url, useHttp = false) {
       });
       resp.on('end', () => {
         if (resp.statusCode === 200) {
-          console.log('Server status : ' + resp.statusCode);
           resolve(data);
         } else {
-          console.log('Server status : ' + resp.statusCode);
           // const msg = JSON.parse(data);
           // reject(msg.error);
           reject(new Error(data));
