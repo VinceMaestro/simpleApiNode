@@ -11,12 +11,12 @@ function asyncHttpsRequest (url, useHttp = false) {
         if (resp.statusCode === 200) {
           resolve(data);
         } else {
-          // const msg = JSON.parse(data);
-          // reject(msg.error);
-          reject(new Error(data));
+          reject(data);
         }
       });
     }).on('error', (error) => {
+      // const msg = JSON.parse(data);
+      // reject(msg.error);
       reject(new Error(error));
     });
   });

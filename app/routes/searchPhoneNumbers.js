@@ -1,12 +1,12 @@
-const ErrHandler = require('./ErrHandler');
-const GoogleApiManager = require('./GoogleApiManager');
-const AddressAndUrlGenerator = require('./AddressAndUrlGenerator');
+const ErrHandler = require('../utils/ErrHandler');
+const GoogleApiManager = require('../utils/GoogleApiManager');
+const AddressAndUrlGenerator = require('../utils/AddressAndUrlGenerator');
 
 const errHandler = new ErrHandler();
 const apiManager = new GoogleApiManager();
 const generator = new AddressAndUrlGenerator();
 
-const express = require('express')
+const express = require('express');
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {

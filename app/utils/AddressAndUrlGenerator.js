@@ -1,5 +1,5 @@
 const fs = require('fs');
-const API_KEY = fs.readFileSync('./credentials', 'utf8');
+const API_KEY = fs.readFileSync(__dirname + '/../../credentials', 'utf8');
 
 class AddressAndUrlGenerator {
   genCompleteAddress (name, address) {
