@@ -6,7 +6,7 @@ function buildUrlEncodedQuery (siren, name, address) {
   return (url);
 }
 
-// FOLLOWING REQUESTS DO NOT NEED PLACE_API_KEY
+// FOLLOWING REQUESTS DO NOT SEND QUERY; NO NEED FOR PLACE_API_KEY
 test('URLENCODED_FUNC_FOR_TESTING : SHOULD ALWAYS PASS: If not, do not trust the next tests result', () => {
   let url = buildUrlEncodedQuery('301941407', 'SA LUBING INTERNATIONAL', '62840 SAILLY SUR LA LYS');
   expect(url).toBe('http://localhost:8000/searchPhoneNumbers?siren=301941407&name=SA LUBING INTERNATIONAL&address=62840 SAILLY SUR LA LYS');
@@ -54,7 +54,7 @@ test('INVALID_ROUTE : 404 NOT FOUND: 1/1. expectedResult = [{err: errMsg, num:nu
   }
 });
 
-// FOLLOWING REQUESTS NEED PLACE_API_KEY
+// FOLLOWING REQUESTS SEND QUERY; NEED PLACE_API_KEY
 test('VALID_INPUT : INFO_FOUND: 1/6. expectedResult = [{name: companyName, nbr: phoneNumber, err: null}]', async () => {
   const url = buildUrlEncodedQuery('312180292', 'EXPERDECO', '74970 MARIGNIER');
   const ret = await asyncHttpsRequest(url, true);

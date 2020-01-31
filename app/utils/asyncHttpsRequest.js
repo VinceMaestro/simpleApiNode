@@ -15,8 +15,6 @@ function asyncHttpsRequest (url, useHttp = false) {
         }
       });
     }).on('error', (error) => {
-      // const msg = JSON.parse(data);
-      // reject(msg.error);
       reject(new Error(error));
     });
   });
