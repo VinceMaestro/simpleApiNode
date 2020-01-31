@@ -6,7 +6,7 @@ Getting started:
 - npm install
 
 2) Running server:
-- npm run start (launch the server on localhost:8000)
+- npm start (launch the server on localhost:8000)
 
 3) Requesting server:
   - GET urlencoded data:
@@ -22,3 +22,6 @@ Fields:
 EXTRA: Running non regression tests:
   WARNING: this will send about 10 requests to google Place API. Billing will apply normally.
 - npm run test
+
+For dev purpose:
+- npm run dev
